@@ -8,6 +8,9 @@ import Modal from "../components/Modal";
 export default function Home() {
 	return (
 		<div className="home">
+			<p className="text-end text-gray-400 font-bold">
+				codedByJordi
+			</p>
 			<Modal />
 			<h4>
 				Welcome Human! <br />

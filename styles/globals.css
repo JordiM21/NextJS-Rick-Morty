@@ -6,6 +6,7 @@ body {
 	background-color: #05292e;
 }
 .home h4 {
+	font-weight: bold;
 	text-align: center;
 	font-size: 1.5rem;
 	color: whitesmoke;
@@ -65,6 +66,8 @@ header {
 	justify-content: flex-start;
 }
 header h1 {
+	font-weight: bold;
+	font-size: 2rem;
 	margin: 0px auto;
 }
 header .i {
@@ -248,6 +251,13 @@ header .i {
 	border-radius: 4px;
 	cursor: pointer;
 }
+.flex {
+	display: flex;
+	flex-wrap: wrap;
+}
+
+/* BIG SCREENS RESPONSIVE */
+
 @media only screen and (min-width: 600px) {
 	.home h4 {
 		font-size: 2rem;
@@ -264,9 +274,5 @@ header .i {
 		overflow: hidden;
 		position: relative;
 		border-radius: 10px;
-	}
-	.flex {
-		display: flex;
-		flex-wrap: wrap;
 	}
 }
