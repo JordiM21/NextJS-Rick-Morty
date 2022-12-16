@@ -3,10 +3,12 @@ import Link from "next/link";
 import Locations from "../public/Locations.jpg";
 import Characters from "../public/Characters.jpg";
 import Image from "next/image";
+import Modal from "../components/Modal";
 
 export default function Home() {
 	return (
 		<div className="home">
+			<Modal />
 			<h4>
 				Welcome Human! <br />
 				Select a place to go and start exploring.

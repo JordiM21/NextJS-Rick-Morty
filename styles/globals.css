@@ -1,9 +1,13 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 body {
 	background-color: #05292e;
 }
 .home h4 {
 	text-align: center;
-	font-size: 1.2rem;
+	font-size: 1.5rem;
 	color: whitesmoke;
 	margin-top: 10px;
 }
@@ -13,7 +17,7 @@ body {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	gap: 30px;
+	gap: 50px;
 }
 
 .home .img-container {
@@ -21,7 +25,7 @@ body {
 	height: 200px;
 	overflow: hidden;
 	position: relative;
-	border-radius: 10px;
+	border-radius: 20px;
 }
 
 .home .img-container h2 {
@@ -30,10 +34,10 @@ body {
 	right: 0px;
 	z-index: 1;
 	background-color: #051a1d;
-	border-radius: 0 0 0 10px;
+	border-radius: 5px 0 0 5px;
 	padding: 5px;
 	color: white;
-	font-size: 90%;
+	font-size: 1.5rem;
 }
 
 .home .img-container img {
@@ -41,7 +45,7 @@ body {
 	height: 300px;
 	box-sizing: content-box;
 	transition: transform 0.2s, filter 0.2s ease-in;
-	filter: blur(0.7px);
+	filter: blur(0.4px);
 	transform: scale(1);
 }
 
@@ -50,26 +54,6 @@ body {
 	transform: scale(1.1);
 }
 
-.navbar {
-	background-color: green;
-	display: flex;
-	max-height: 50px;
-	justify-content: space-between;
-	align-items: center;
-}
-.navbar .logo {
-	max-width: 150px;
-	align-items: center;
-	margin-left: 10px;
-}
-.navbar .rick {
-	max-width: 45px;
-	max-height: 40px;
-	background-color: #051a1d;
-	border-radius: 50px;
-	box-shadow: #051a1d 0px 0px 10px;
-	margin-right: 10px;
-}
 .Locations {
 	color: whitesmoke;
 }
@@ -83,28 +67,25 @@ header {
 header h1 {
 	margin: 0px auto;
 }
-header i {
+header .i {
 	font-size: 2rem;
 	margin-left: 8px;
 	color: white;
 }
 .Locations .info-card {
-	height: 90px;
-	width: 370px;
+	height: 120px;
+	width: 360px;
 	margin: 20px auto;
 	background-color: #051a1d;
 	display: flex;
 	flex-direction: column;
-	justify-content: space-around;
-	padding: 5px;
+	justify-content: center;
+	padding: 15px;
 	border-radius: 8px;
-	position: relative;
-	transition: 0.2s ease-in;
+	transition: 0.1s ease-in;
 	cursor: pointer;
 }
-.Locations .info-card:hover i {
-	transform: scale(1.2);
-}
+
 .Locations .info-card:hover {
 	box-shadow: 1px 1px 5px black;
 	transform: scale(1.005);
@@ -118,15 +99,16 @@ header i {
 	font-size: 1.3rem;
 	margin-left: 0.8rem;
 	transition: 0.3s ease-in;
+	margin: 5px;
 }
 .Locations .info-card p {
 	text-align: center;
 	transition: 0.3s ease-in;
+	margin: 5px auto;
 }
 .Locations .d-flex {
 	display: flex;
 	justify-content: space-around;
-	margin-right: 16px;
 	align-items: flex-start;
 	color: rgba(240, 248, 255, 0.739);
 }
@@ -178,37 +160,6 @@ header i {
 	color: aliceblue;
 }
 
-.modal {
-	background-color: rgba(1, 44, 1, 0.982);
-	width: 100%;
-	height: 320px;
-	transition: 0.2s ease-in-out;
-	position: fixed;
-	border-radius: 8px;
-	z-index: 1;
-	text-align: center;
-}
-
-.modal li {
-	margin-top: 10px;
-	text-align: start;
-	padding: 5px;
-}
-.modal i {
-	font-size: 1.5rem;
-	position: absolute;
-	right: 8px;
-	top: 8px;
-}
-.open {
-	opacity: 100%;
-}
-
-.close {
-	opacity: 0%;
-	display: none;
-}
-
 .Characters {
 	color: whitesmoke;
 }
@@ -227,6 +178,11 @@ header i {
 	cursor: pointer;
 	text-align: center;
 	padding: 10px;
+}
+
+.char-card h1 {
+	font-weight: bold;
+	font-size: 1.8rem;
 }
 
 .char-card img {
@@ -293,6 +249,9 @@ header i {
 	cursor: pointer;
 }
 @media only screen and (min-width: 600px) {
+	.home h4 {
+		font-size: 2rem;
+	}
 	.home .d-flex {
 		flex-direction: row;
 		align-items: center;

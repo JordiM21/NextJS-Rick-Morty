@@ -1,6 +1,11 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import Link from "next/link";
+import {
+	AiFillCaretLeft,
+	AiOutlineArrowLeft,
+	AiFillCaretRight,
+} from "react-icons/ai";
 
 export default function characters() {
 	const [idInput, setIdInput] = useState([]);
@@ -33,7 +38,7 @@ export default function characters() {
 		<div className="Locations">
 			<header>
 				<Link href="/">
-					<i class="fa-solid fa-chevron-left"></i>
+					<AiOutlineArrowLeft className="i" />
 				</Link>
 				<h1>Locations</h1>
 			</header>
@@ -55,7 +60,7 @@ export default function characters() {
 					onClick={() => setPage(page - 1)}
 					disabled={page === 1}
 				>
-					<i class="fa-solid fa-arrow-left"></i>
+					<AiFillCaretLeft />
 				</button>
 				{pages.map((number) => (
 					<button
@@ -73,7 +78,7 @@ export default function characters() {
 					onClick={() => setPage(page + 1)}
 					disabled={page === 7}
 				>
-					<i class="fa-solid fa-arrow-right"></i>
+					<AiFillCaretRight />
 				</button>
 			</div>
 			<div className="flex">
@@ -82,30 +87,41 @@ export default function characters() {
 						className="info-card"
 						key={location.url}
 					>
-						<h4>{location.name}</h4>
-						<div className="d-flex">
-							<p>
-								Dimension:
-								<br />
-								{
-									location.dimension
-								}
-							</p>
-							<p>
-								Type:
-								<br />
-								{location.type}
-							</p>
-							<p>
-								Residents:
-								<br />
-								{
-									location
-										.residents
-										.length
-								}
-							</p>
-						</div>
+						<Link
+							href={{
+								pathname: "/details/[id]/locations",
+								query: {
+									id: location.id,
+								},
+							}}
+						>
+							<h4>{location.name}</h4>
+							<div className="d-flex">
+								<p>
+									Dimension:
+									<br />
+									{
+										location.dimension
+									}
+								</p>
+								<p>
+									Type:
+									<br />
+									{
+										location.type
+									}
+								</p>
+								<p>
+									Residents:
+									<br />
+									{
+										location
+											.residents
+											.length
+									}
+								</p>
+							</div>
+						</Link>
 					</div>
 				))}
 			</div>

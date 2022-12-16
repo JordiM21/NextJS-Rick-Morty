@@ -2,6 +2,16 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import Link from "next/link";
 import Image from "next/image";
+import {
+	AiFillCaretLeft,
+	AiFillCaretRight,
+	AiFillCloseCircle,
+	AiFillLeftCircle,
+	AiOutlineArrowLeft,
+	AiOutlineLeft,
+	AiOutlineQuestionCircle,
+	AiOutlineSwapLeft,
+} from "react-icons/ai";
 
 const Characters = () => {
 	const [characters, setCharacters] = useState({});
@@ -33,13 +43,11 @@ const Characters = () => {
 			.catch(() => setCharacters({}));
 	}, [idInput, filterStatus]);
 
-	const [modal, setModal] = useState("close");
-
 	return (
 		<div className="Characters">
 			<header>
 				<Link href="/">
-					<i class="fa-solid fa-chevron-left"></i>
+					<AiOutlineArrowLeft className="i" />
 				</Link>
 
 				<h1>Characters</h1>
@@ -59,61 +67,17 @@ const Characters = () => {
 					type="text"
 					placeholder="Type a location name"
 				/>
-				<i
-					style={{ cursor: "pointer" }}
-					onClick={() => setModal("open")}
-					class="fa-regular fa-circle-question"
-				></i>
-			</div>
-			<div
-				className={
-					modal == "open"
-						? "open modal"
-						: "close modal"
-				}
-			>
-				<i
-					style={{ cursor: "pointer" }}
-					onClick={() => setModal("close")}
-					class="fa-solid fa-x"
-				></i>
-				<h2>Información Importante</h2>
-				<ul>
-					Esta es una app interactiva en la cual
-					podrás: <br />
-					<li>
-						Filtrar los personajes por su
-						estatos (alive, dead o unknown)
-					</li>
-					<li>Filtrar por nombre de Personaje</li>
-					<li>
-						{" "}
-						Ver la paginación de la
-						totalidad de los personajes
-					</li>
-					<li>
-						Filtra el nombre y status a la
-						vez, es decir puedes buscar algo
-						como (Rick Alive) y te mostrará
-						todos los personajes de nombre
-						Rick que están vivos
-					</li>
-					<li>
-						(Recuerdas que si cambias la
-						página los filtros se
-						reiniciarán)
-					</li>
-				</ul>
 			</div>
 			<div className="pagination">
 				<button
 					onClick={() => setPage(page - 1)}
 					disabled={page === 1}
 				>
-					<i class="fa-solid fa-arrow-left"></i>
+					<AiFillCaretLeft />
 				</button>
 				{pages.map((number) => (
 					<button
+						key={number}
 						className={
 							number == page
 								? "selected"
@@ -128,7 +92,7 @@ const Characters = () => {
 					onClick={() => setPage(page + 1)}
 					disabled={page === 7}
 				>
-					<i class="fa-solid fa-arrow-right"></i>
+					<AiFillCaretRight />
 				</button>
 			</div>
 			<div className="filters">
@@ -168,11 +132,15 @@ const Characters = () => {
 			</div>
 			<div className="flex">
 				{characters.results?.map((char) => (
-					<div className="char-card">
+					<div
+						key={char.id}
+						className="char-card"
+					>
 						<div className="img-container">
 							<Image
 								src={char.image}
-								fill
+								width={200}
+								height={100}
 							/>
 						</div>
 						<h1>{char.name}</h1>
