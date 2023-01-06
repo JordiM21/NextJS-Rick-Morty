@@ -12,6 +12,13 @@ body {
 	color: whitesmoke;
 	margin-top: 10px;
 }
+.question {
+	font-weight: bold;
+	font-size: 2rem;
+	color: whitesmoke;
+	position: absolute;
+	right: 5vw;
+}
 
 .home .d-flex {
 	margin-top: 20px;

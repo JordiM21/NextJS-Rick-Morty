@@ -4,18 +4,31 @@ import Locations from "../public/Locations.jpg";
 import Characters from "../public/Characters.jpg";
 import Image from "next/image";
 import Modal from "../components/Modal";
+import { useRef, useState } from "react";
+import { AiOutlineQuestionCircle } from "react-icons/ai";
 
 export default function Home() {
+	const [open, setOpen] = useState(true);
+
+	const cancelButtonRef = useRef(null);
 	return (
 		<div className="home">
 			<p className="text-end text-gray-400 font-bold">
 				codedByJordi
 			</p>
-			<Modal />
+			<Modal
+				open={open}
+				setOpen={setOpen}
+				cancelButtonRef={cancelButtonRef}
+			/>
 			<h4>
 				Welcome Human! <br />
 				Select a place to go and start exploring.
 			</h4>
+			<AiOutlineQuestionCircle
+				className="question"
+				onClick={() => setOpen(true)}
+			/>
 			<div className="d-flex">
 				<Link href="/locations">
 					<div className="img-container">
