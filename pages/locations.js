@@ -6,10 +6,15 @@ import {
 	AiOutlineArrowLeft,
 	AiFillCaretRight,
 } from "react-icons/ai";
+import { useRouter } from "next/router";
+
+
 
 export default function characters() {
 	const [idInput, setIdInput] = useState([]);
 	const [location, setLocation] = useState({});
+
+	const router = useRouter();
 
 	useEffect(() => {
 		axios.get(
@@ -87,12 +92,15 @@ export default function characters() {
 						className="info-card"
 						key={location.url}
 					>
-						<Link
-							href={{
-								pathname: "/details/[id]/locations",
-								query: {
-									id: location.id,
-								},
+						<button
+							type='button'
+							onClick={() => {
+								router.push({
+									pathname: "/locationDetail/[id]",
+									query: {
+										id: location.id,
+									},
+								})
 							}}
 						>
 							<h4>{location.name}</h4>
@@ -121,7 +129,7 @@ export default function characters() {
 									}
 								</p>
 							</div>
-						</Link>
+						</button>
 					</div>
 				))}
 			</div>

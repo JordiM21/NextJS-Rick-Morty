@@ -8,7 +8,7 @@ import { useRef, useState } from "react";
 import { AiOutlineQuestionCircle } from "react-icons/ai";
 
 export default function Home() {
-	const [open, setOpen] = useState(true);
+	const [open, setOpen] = useState(false);
 
 	const cancelButtonRef = useRef(null);
 	return (
@@ -28,6 +28,7 @@ export default function Home() {
 			<AiOutlineQuestionCircle
 				className="question"
 				onClick={() => setOpen(true)}
+				style={{ cursor: "pointer" }}
 			/>
 			<div className="d-flex">
 				<Link href="/locations">
